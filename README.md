@@ -5,7 +5,7 @@ Conception et réalisation du drone sous marin
 ## Télécommande: 
 Carte Mére: Damien Nouhant
 
-Affichage écran: Thomas Coutant
+Affichage écran/Alimentation: Thomas Coutant
 
 Communication: Eric Rebillon
 
