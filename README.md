@@ -13,4 +13,6 @@ Déplacement: Clément Millereux
 
 Carte-Mère: Marc-Antoine Woodcock
 
+Caméra/Envoie Video: Thomas Coutant
+
 Communication/Alimentation: Eric Rebillon
