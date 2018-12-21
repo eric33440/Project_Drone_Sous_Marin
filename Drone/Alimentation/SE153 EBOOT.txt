@@ -1,0 +1,26 @@
+Spécifications: 
+Input voltage: 4,5 V à 28 V 
+Tension de sortie: 0,8 V à 20 V 
+Sortie courant: 3 (maximum) 
+L'efficacité de conversion: 92 % (maximum) 
+Ondulation de sortie: moins de 30 mV 
+Fréquence de commutation: 1,5 MHz (plus haut), généralement de 1 MHz 
+Température de fonctionnement:-45 ? à 85 ? 
+Taille: 22 mm x 17 mm par 4 mm 
+Demande: BRICOLAGE électrique mobile, moniteur alimentation, buggies de puissance, alimentation pour caméra, puissance voiture, équipements de communication, etc.. 
+
+Forfait comprend: 
+6 x Mini MP1584EN continu convertisseur buck de 
+
+Vous pouvez ajuster la tension en plaçant un multimètre sur la sortie, de manière synchrone, à l'aide d'un tournevis pour ajuster un potentiomètre. Il peut être des ajustements minutes pour atteindre une tension précise. 
+
+Rappel gentiment 
+Ces planches sont la limitation de courant réglable, fixe la limite actuelle de 3 a. 
+S'il vous plaît assurez-vous que de l'ordre avant d'utiliser ce module au sein de son travail. 
+S'il vous plaît ne sortie court-circuit, sinon le conseil pourrait brûler. 
+Lorsque vous définissez le paramètre, s'il vous plaît assurez-vous que la tension sortie est stable avant d'utiliser le module pour éviter tout dommage possible.
+
+Conseils:
+Vérifiez si le paquet du produit est intact avant d'ouvrir. 
+Vérifiez si les terminaux négatif et positif sont accessibles correctement avant d'opérer.
+La tension d'entrée ne doit pas dépasser 28 V pour éviter les dommages.
