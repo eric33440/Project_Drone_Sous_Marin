@@ -7,7 +7,7 @@ Conception et réalisation du drone sous marin
 
 # Membres Equipes
 
-Clément Millereux 
+Clément Millereux : https://github.com/CMillereux
 
 Marc-Antoine Woodcock : https://github.com/MarcAntoineWoodcock
 
