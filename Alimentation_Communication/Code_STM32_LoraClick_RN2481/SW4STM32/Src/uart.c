@@ -85,11 +85,11 @@ void preenvoie(void)
 	end_send();
 	//attente de la réponse du module
 	//HAL_UART_Receive_IT(&huart3,bufferdata1,12);
-	while(bufferdata[0]=='\0')
+	while(bufferdata[2]=='\0')
 	{
 		HAL_UART_Receive(&huart3,bufferdata,12,rx_timout);
-		HAL_UART_Transmit(&huart2,(uint8_t*)bufferdata,12,tx_timout);
-	}
+
+	}HAL_UART_Transmit(&huart2,(uint8_t*)bufferdata,12,tx_timout);
 	// Apres avoir effectue la commande init "mac pause" on doit recevoir :4294967245
 }
 void postenvoie(void)
@@ -102,7 +102,7 @@ void postenvoie(void)
 		HAL_UART_Transmit(&huart2,&after[i],1,tx_timout);
 	}
 	//HAL_UART_Receive_IT(&huart3,bufferdata1,4);
-	while(bufferdata2[0]=='\0')
+	while(bufferdata2[2]=='\0')
 	{
 		HAL_UART_Receive(&huart3,bufferdata2,4,rx_timout);
 		HAL_UART_Transmit(&huart2,bufferdata2,4,tx_timout);
@@ -111,9 +111,9 @@ void postenvoie(void)
 
 void envoie_lora(uint8_t delay, int nbre_caractere ,uint8_t carac_envoie[nbre_caractere+1])
 {
-	//uint8_t rep_lora[20]="radio_tx_lora";
+	preenvoie();
 	string();
-	//preenvoie();
+
 	for(int i=0 ; i< 10/*sizeof((send))*/;i++)
 	{
 		HAL_UART_Transmit(&huart3,&send[i],1,tx_timout);
@@ -127,34 +127,36 @@ void envoie_lora(uint8_t delay, int nbre_caractere ,uint8_t carac_envoie[nbre_ca
 	end_send();
 	/*HAL_UART_Receive_IT(&huart3,bufferdata1,4);
 	HAL_UART_Receive_IT(&huart3,bufferdata1,13);*/
-	while(bufferdata2[4]=='\0')
+	while(bufferdata2[7]=='\0')
 	{
 		HAL_UART_Receive(&huart3,bufferdata2,19,rx_timout);
 	}
-	HAL_UART_Transmit(&huart2,bufferdata2,17,tx_timout);
+	HAL_UART_Transmit(&huart2,bufferdata2,19,tx_timout);
 	/*while(bufferdata2[0]=='\0')
 	{
 
 	}*/
 	//HAL_UART_Receive(&huart3,bufferdata2,11,rx_timout);
 	string();
+	postenvoie();
 }
 
 void reception_lora(uint8_t delais)
 {
+	preenvoie();
 	string();
-	for(int i = 0; i < 10/* sizeof(carac_envoie)*/;i++ )
+	for(int i = 0; i < 12/* sizeof(carac_envoie)*/;i++ )
 	{
 		HAL_UART_Transmit(&huart3,&receive[i],1,tx_timout);
 		HAL_UART_Transmit(&huart2,&receive[i],1,tx_timout);
 	}
 	end_send();
 
-	while(bufferdata1[4]=='\0')
+	while(bufferdata1[7]=='\0')
 	{
-		HAL_UART_Receive(&huart3,bufferdata1,19,rx_timout);
-		HAL_UART_Transmit(&huart2,bufferdata1,17,tx_timout);
+		HAL_UART_Receive(&huart3,bufferdata1,18,rx_timout);
 	}
+	HAL_UART_Transmit(&huart2,bufferdata1,18,tx_timout);
 	/*
 	while(bufferdata2[10]=='\0')
 	{
@@ -173,6 +175,7 @@ void reception_lora(uint8_t delais)
 		HAL_UART_Transmit(&huart2,bufferdata2,13,tx_timout);
 	}*/
 	string();
+	postenvoie();
 }
 
 void envoie_bis(uint8_t delay, int nbre_caractere ,uint8_t carac_envoie[nbre_caractere+1])
@@ -226,20 +229,8 @@ void envoie_bis(uint8_t delay, int nbre_caractere ,uint8_t carac_envoie[nbre_car
 	}
 }
 
-void global_envoie(void){
-	preenvoie();
-	HAL_Delay(10);
-	envoie_lora(10,2,(uint8_t*)"aa");
-	//reception_lora(10);
-	postenvoie();
-	//HAL_Delay(42);
-}
-void global_reception(void){
-	preenvoie();
-	HAL_Delay(10);
-	reception_lora(100);
-	postenvoie();
-}
+
+
 /*void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if(huart==&huart3)

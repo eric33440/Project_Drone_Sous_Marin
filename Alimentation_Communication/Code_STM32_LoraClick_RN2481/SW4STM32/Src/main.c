@@ -119,74 +119,19 @@ int main(void)
 	/* USER CODE END 2 */
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
-
-	char * symbole={
-			"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"sssssssssooossssssssssssssssssssssosssossssssssssssssssssssssssssooosssssssssssssssssssssssossssssss\r\n",
-			"sssssssooosssssssssssssssssssssssosoosssoss/...:osssssssssssssssooossssssssssssssso+syyssoso+ossosss\r\n",
-			"sssssooossssssssssssssssssssssssossoooooss:`````:sssssssssooosoososssssssssssssss/::/ohdhyysoooossss\r\n",
-			"ssssoossssssssssssssssssssssssssssssoosss+``````+ssssssso:```./sssssssssssssssss/::::::/+oo++ossssss\r\n",
-			"ssssossssssssssssssssssssssssssssssssssso.`````:sssssso:``````.sssssssssssssssss:::::----:::/sssssss\r\n",
-			"ssssssssssssssssssssssssssss+-.../ssssss:`````.ossss+-```````-+sssssssssssssss+--::---::::::+sssssss\r\n",
-			"ssssssssssssssssssssssssssss.`````ossss+``````+sss+-```````-+sssssssssssssssss/  .:::::::::/ssssssss\r\n",
-			"ssssssssssssssssssssssssssss.`````+ssso.`````:ss+-```````-+sssssssssssssssssss/   ``.---.` /ssssssss\r\n",
-			"ssssssssssssssssssssssssssss-`````/sss-`````.o+-```````-+sssssssssssssssssssss/  ` ```     /ssssssss\r\n",
-			"ssssssssssssssssssssssssssss-`````/ss/``````/-```````-+sssssssssssssssssssssss/  - -/:     /ssssssss\r\n",
-			"ssssssssssssssssssssssssssss:`````:so``````````````./ossssssssssssssssssssssss/  . -:.     /ssssssss\r\n",
-			"ssssssssssssssssssssssssssss:`````-s-```````````````..-:+ossssssssssssssssssss/  - -:.     /ssssssss\r\n",
-			"ssssssssssssssssssssssssssss/`````-/`````````````````````.-/osssssssssssssssss/  . -:.     /ssssssss\r\n",
-			"ssssssssssssssssssssssssssss/```````````````````..``````````.:osssssssssssssss/  - ./.     /ssssssss\r\n",
-			"ssssssssssssssssssssssssssss+`````````````.:/+ooooo+/:-````````/osssssssssssss/  . -/.     /sssossss\r\n",
-			"sssssoooossosssssssssssssssso``````````./ossssssssssssso/.``````-ossssssssssss/  . .:`     /sooossss\r\n",
-			"ssssoso++ooosssssssssssssssso`````````:ossssssssssssssssss/``````.ooosssssssss/  . .-`     /ooosssss\r\n",
-			"ssssssssooosssssssssssssssss+````````+sssssssssssssssssssss+.`````-sssssssssss/  - -:.     /osssssss\r\n",
-			"ssssssssosssssssssssssssssss/```````/sssssssssssssssssssssss+``````ossssssssss/  - .:.     /ssssssss\r\n",
-			"ssssssssssssssssssssssssssss-```````ssss+oooo+ooooooooo+oosss.`````/ssssssssss/  - -:.     /ssssssss\r\n",
-			"ssssssssssssssssssssssssssss```````-sss+-..//-.-//-o./+.o.ssso/-```/ssssssssss/  - -/.     /ssssssss\r\n",
-			"sssssssssssssssssssssssssss+```````.sss+-o-//:.-+/:o./o-s:sssssso:+sssssssssss/  . -:.     /ssssssss\r\n",
-			"sssssssssssssssssssssssssss:````````+sssosoooooosooooosososs+/:.``/sssssssssss/  - .--     /ssssssss\r\n",
-			"sssssssssssssssssssssssssss-`````````osssssssssssssssssssss+``````+sssssssssss/  . -:.     /ssssssss\r\n",
-			"sssssssssssssssssssssssssss```````````/sssssssssssssssssss:``````:ssssssssssss/    .:.     /ssssssss\r\n",
-			"ssssssssssssssssssssssssss+````````````./sssssssssssssso/.``````:sssssssssssss/    -/.     /ssssssss\r\n",
-			"ssssssssssssssssssssssssss:```````````````-/+ossssso+/-```````.+ssssssssssssss+            +ssssssss\r\n",
-			"ssssssssssssssssssssssssss.`````````````````````.```````````.:ossssssssssssssss/`        `/sssssssss\r\n",
-			"sssssssssssssssssssssssss+````````````````````````````````-/ossssssosssssssssssss+/::::/+sssssssssss\r\n",
-			"sssssssssooosssssssssssss:`````````````````````````````.:+sssssssooossssssssssssssssssssssssssssssss\r\n",
-			"sssssssooosssssssssssssso````````````````````````````./osssssssoooossssssssssssssssssssssoso+ossosss\r\n",
-			"ssssssoossssssssssssssss:``````````````````````````-+sssssssssoosssssssssssssssssssssssssosooooossss\r\n",
-			"ssssosssssssssssssssssso````````````````````````./osssssssssoosssssssssssssssssssssssssssssssossssss\r\n",
-			"sssssssssssssssssssssss-``````````````````````-+osssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"ssssssssssssssssssssos:`````````````````````-+ssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"ssssssssssssssssssso.. ```````````````````-+ssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"ssssssssssssssssssh:.     ``````````````.+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"ssssssssssssssssydhdho/.      `````````:osssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"sssssssssssssssydhdmhddhs+-`     `````/sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"ssssssssssssssydhddhdmdhddhho-`     `/ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"sssssssssssssydhddhdmhhmdhddhdho/.   `-/osssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"ssssssssssssydhddhdmhdmdhmdhddhdmhs+.`  :sssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"sssssssssssydhmdhdmhdmdhmdhdmhdmdhmdhho/ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"ssssssssssydhmdhdmhdmdhmdhdmhdmhhmdhddyhdyyssssssssssssssssssssosssssssssssssssssssssssssssssooossss\r\n",
-			"sssssoooohhyddhdmhdmdhmdhmdhdmhdmdhho+oyhdmdsssssssssssssssssosooosoosssssssssssssssssssssssooosssss\r\n",
-			"ssssoso+shyddhdmhdmhdmdhmdhdmhdmdhdyoossdmdssssssssssssssssssos++ooossssssssssssssssssssssoossssssss\r\n",
-			"sssssoshyyddhmmhdmhdmdhmdhdmhdmdyyssddhdmdsssssssssssssssssssosso+osssssssssssssssssssssosssssssssss\r\n",
-			"sssssshhhmdhmdhdmhdmdhmdhdmhdmdhyoooyhdmdsssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n",
-			"ssssshhdmdhmdhdmhdmdhmdhmmhdmhdmdyyhydmhssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss\r\n"};
 	HAL_UART_Transmit(&huart2,(uint8_t*)"\033c",5,10);
-	//for(int i =0 ; i<sizeof(symbole);i++)
-	HAL_UART_Transmit(&huart2,(uint8_t*)symbole,sizeof(symbole),1000);
-	//HAL_UART_Transmit(&huart2,(uint8_t*)symbole,sizeof(symbole),10);
-	//HAL_UART_Transmit(&huart3,(uint8_t*)"mac reset\r\n",11,10);
+
+
 	init_lora(1);
 	//HAL_UART_Receive_IT(&huart3,bufferdata1,sizeof(bufferdata1));
-	//envoie_bis(10,2,"aa");
-	global_envoie();
+	envoie_lora(10,2,"aa");
 
-	//global_reception();
 	while (1)
 	{
-		/* USER CODE BEGIN 3 */
 
+		/* USER CODE BEGIN 3 */
+		init_lora(1);
+		reception_lora(10);
 	}
 	/* USER CODE END 3 */
 }
@@ -199,14 +144,14 @@ int main(void)
 
 
 /* USER CODE BEGIN 4 */
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+/*void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 
 	if(huart==&huart3)
 	{
 		HAL_UART_Transmit(&huart2,bufferdata1,sizeof(bufferdata1),tx_timout);
 	}
-}
+}*/
 
 /* USER CODE END 4 */
 
