@@ -11,36 +11,36 @@ programmation, mais également le travail en équipe.
 
 # Membres Equipes
 
-Clément Millereux : https://github.com/CMillereux
+* Clément Millereux : https://github.com/CMillereux
 
-Marc-Antoine Woodcock : https://github.com/MarcAntoineWoodcock
+* Marc-Antoine Woodcock : https://github.com/MarcAntoineWoodcock
 
-Thomas Coutant : https://github.com/Coutanthomas
+* Thomas Coutant : https://github.com/Coutanthomas
 
-Eric Rebillon : https://github.com/eric33440
+* Eric Rebillon : https://github.com/eric33440
 
-Damien Nouhant : https://github.com/Drracula
+* Damien Nouhant : https://github.com/Drracula
 
 ## Télécommande: 
 
-Carte Mére: Damien Nouhant
+* Carte Mére: Damien Nouhant
 
-Affichage écran/Alimentation: Thomas Coutant
+* Affichage écran/Alimentation: Thomas Coutant
 
-Communication: Eric Rebillon
+* Communication: Eric Rebillon
 
 ## Drone sous-marin:
 
-Déplacement: Clément Millereux
+* Déplacement: Clément Millereux
 
-Carte-Mère: Marc-Antoine Woodcock
+* Carte-Mère: Marc-Antoine Woodcock
 
-Caméra/Envoie Video: Thomas Coutant
+* Caméra/Envoie Video: Thomas Coutant
 
-Communication/Alimentation: Eric Rebillon
-
-
+* Communication/Alimentation: Eric Rebillon
 
 
 
-* Pour plus d'information consultez: Rapport Revue Final Sous-Marin.pdf
+
+
+** Pour plus d'information consultez: Rapport Revue Final Sous-Marin.pdf **
