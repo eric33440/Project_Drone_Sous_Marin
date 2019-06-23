@@ -3,7 +3,11 @@
 
 # Project_Drone_Sous_Marin
 
-Conception et réalisation du drone sous marin
+Le but de projet est de développer un drone sous-marin « from scratch ». Ce dernier doit être simple
+d’utilisation et de mise au point afin d'être accessible à toute personne voulant le piloter.
+Ce projet comprend la conception d’un drone sous-marin ainsi qu’une télécommande ce qui nous
+permettra d’augmenter nos compétences en conception assistée par ordinateur (CAO) ainsi qu’en
+programmation, mais également le travail en équipe.
 
 # Membres Equipes
 
