@@ -10,6 +10,9 @@
 
 #include <stm32f4xx_hal.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <assert.h>
 
 
 #define init "mac pause"
@@ -17,7 +20,7 @@
 
 
 #define tx_timout 100
-#define rx_timout 1000
+#define rx_timout 100
 
 UART_HandleTypeDef huart2;
 UART_HandleTypeDef huart3;
@@ -25,8 +28,9 @@ UART_HandleTypeDef huart3;
 
 static uint8_t send[10] = "radio tx ";
 static uint8_t send1[12] = "mac pause";
-static uint8_t receive[15] = "radio rx 100";
+static uint8_t receive[15] = "radio rx 10";
 static uint8_t after[13] = "mac resume\r\n";
+static uint8_t datarx[10];
 
 uint8_t bufferdata[20];
 uint8_t bufferdata1[20];

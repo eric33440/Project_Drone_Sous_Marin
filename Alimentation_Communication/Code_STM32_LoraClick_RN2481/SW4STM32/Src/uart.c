@@ -111,10 +111,11 @@ void postenvoie(void)
 
 void envoie_lora(uint8_t delay, int nbre_caractere ,uint8_t carac_envoie[nbre_caractere+1])
 {
+	init_lora(1);
 	preenvoie();
 	string();
 
-	for(int i=0 ; i< 10/*sizeof((send))*/;i++)
+	for(int i=0 ; i< 11/*sizeof((send))*/;i++)
 	{
 		HAL_UART_Transmit(&huart3,&send[i],1,tx_timout);
 		HAL_UART_Transmit(&huart2,&send[i],1,tx_timout);
@@ -143,9 +144,11 @@ void envoie_lora(uint8_t delay, int nbre_caractere ,uint8_t carac_envoie[nbre_ca
 
 void reception_lora(uint8_t delais)
 {
-	preenvoie();
-	string();
-	for(int i = 0; i < 12/* sizeof(carac_envoie)*/;i++ )
+	init_lora(1);
+	preenvoie();//envoie de la commande de preenvoie
+	string();// vide les tableau avant et après utilisation pour éviter les décalages ou problèmes de changement de symbole
+	uint8_t CRLF[2];
+	for(int i = 0; i < 11/* sizeof(carac_envoie)*/;i++ )
 	{
 		HAL_UART_Transmit(&huart3,&receive[i],1,tx_timout);
 		HAL_UART_Transmit(&huart2,&receive[i],1,tx_timout);
@@ -157,77 +160,48 @@ void reception_lora(uint8_t delais)
 		HAL_UART_Receive(&huart3,bufferdata1,18,rx_timout);
 	}
 	HAL_UART_Transmit(&huart2,bufferdata1,18,tx_timout);
-	/*
-	while(bufferdata2[10]=='\0')
-	{
-		HAL_UART_Receive(&huart3,bufferdata2,13,rx_timout);
-		HAL_UART_Transmit(&huart2,bufferdata2,13,tx_timout);
-	}*/
 
-	/*while(bufferdata1[0]=='\0')
+	char *result;//tableau fait la même taille que le buffer de réception + 1 pour le \0
+	*result = NULL;
+	result = strrchr( bufferdata1, ' ');// on cherche a séparé la donnée du reste de la commande reçue
+	strcpy(datarx,result);//copie du résultat dans la chaîne qui contiendra le résultat final
+	for (int var = 0; var < sizeof(datarx); ++var)
 	{
-		HAL_UART_Receive(&huart3,bufferdata1,4,rx_timout);
-		HAL_UART_Transmit(&huart2,bufferdata1,4,tx_timout);
+		if(datarx[var]=='\r')//s le résultat est \r alors on le remplaçera par rien
+			datarx[var]='\0';
+		if(datarx[var]=='\n')//s le résultat est \n alors on le remplaçera par rien
+			datarx[var]='\0';
 	}
-	while(bufferdata2[4]=='\0')
-	{
-		HAL_UART_Receive(&huart3,bufferdata2,13,rx_timout);
-		HAL_UART_Transmit(&huart2,bufferdata2,13,tx_timout);
-	}*/
+	//la donnée reçue est accessible sur la chaîne de caractères datarx
 	string();
 	postenvoie();
 }
 
-void envoie_bis(uint8_t delay, int nbre_caractere ,uint8_t carac_envoie[nbre_caractere+1])
+void test_separate_string(void)
 {
-	int var = 0;
-	//attente de fin envoie et de confirmation d'envoie terminé
-	switch (var) {
-	case 0:
-		string();
-		//end_send();
-		//envoie de la commande mac pause
-		for(int i=0 ; i<9; i++)
-		{
-			HAL_UART_Transmit(&huart3,&send1[i],1,tx_timout);
-			HAL_UART_Transmit(&huart2,&send1[i],1,tx_timout);
-		}
-		end_send();
-		//attente de la réponse du module
-		HAL_UART_Receive_IT(&huart3,bufferdata1,12);
-		var++;
-		break;
-	case 1:
-		for(int i=0 ; i< 10/*sizeof((send))*/;i++)
-		{
-			HAL_UART_Transmit(&huart3,&send[i],1,tx_timout);
-			HAL_UART_Transmit(&huart2,&send[i],1,tx_timout);
-		}
-		for(int i = 0; i <  2;i++ )
-		{
-			HAL_UART_Transmit(&huart3,&carac_envoie[i],1,tx_timout);
-			HAL_UART_Transmit(&huart2,&carac_envoie[i],1,tx_timout);
-		}
-		end_send();
 
-		HAL_UART_Receive_IT(&huart3,bufferdata1,4);
-		HAL_UART_Receive_IT(&huart3,bufferdata2,13);
-		var++;
-		break;
-	case 2:
-		for (int i=0 ; i < 13 ; i++)
-		{
-			HAL_UART_Transmit(&huart3,&after[i],1,tx_timout);
-			HAL_UART_Transmit(&huart2,&after[i],1,tx_timout);
-		}
-		HAL_UART_Receive_IT(&huart3,bufferdata1,4);
+	uint8_t data[20]="radio rx aa\r\n";
+	uint8_t datarx[10];
+	char *result;//tableau fait la même taille que le buffer de réception + 1 pour le \0
+	*result = NULL;
+	result = strrchr( data, ' ');// on cherche a séparé la donnée du reste de la commande reçue
+	strcpy(datarx,result);//copie du résultat dans la chaîne qui contiendra le résultat final
+	for (int var = 0; var < sizeof(datarx); ++var)
+	{
+		if(datarx[var]=='\r')//s le résultat est \r alors on le remplaçera par rien
+			datarx[var]='\0';
+		if(datarx[var]=='\n')//s le résultat est \n alors on le remplaçera par rien
+			datarx[var]='\0';
 
-		var++;
-		break;
-	default:
-		break;
 	}
+
+	//fonction separe la chaîne
+	// data retournera la donnée reçue par le module est envoyer par la télécommande
+	HAL_UART_Transmit(&huart2,result,20,tx_timout);
+	HAL_UART_Transmit(&huart2,"\r\n",2,tx_timout);
+
 }
+
 
 
 
